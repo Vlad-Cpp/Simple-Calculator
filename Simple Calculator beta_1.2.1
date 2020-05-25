@@ -1,0 +1,78 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+	{
+	auto Sum = [](double a, double b) {return a + b; };
+	auto Sub = [](double a, double b) {return a - b; };
+	auto Multiply = [](double a, double b) {return a * b; };
+	auto Div = [](double a, double b) {return a / b; };
+	auto Perc = [](double a, double b) {return a / 100 * b; };
+	setlocale(LC_ALL, "Russian");
+		double a;
+		double b;
+		char sel;
+
+		cout << "-========== Simple Calculator ===============-\nMade by: VladX\nVersion: beta_1.2.1\nKernel version: a_0.2_integrated\n-============================================-" << std::endl;
+		cout << "*!: Внимание! Вводить можно только символы арифметических операций: (+, -, *, /, %)" << std::endl;
+	link:
+		cout << "*: Введите символ операции: ";
+		cin >> sel;
+
+
+
+		switch (sel)
+		{
+		case '+':
+		cout << "Введите первое слагаемое: ";
+			cin >> a;
+			cout << "Введите второе слгаемое: ";
+			cin >> b;
+			cout << "Ответ: " << Sum(a, b) << endl;
+			goto link;
+		case '-':
+			cout << "Введите уменьшаемое: ";
+			cin >> a;
+			cout << "Введите вычитаемое: ";
+			cin >> b;
+			cout << "Ответ: " << Sub(a, b) << endl;
+			goto link;
+		case '*':
+			cout << "Введите первый множитель: ";
+			cin >> a;
+			cout << "Введите второй множитель: ";
+			cin >> b;
+			cout << "Ответ: " << Multiply(a, b) << endl;
+			goto link;
+		
+		case '/':
+			cout << "Введите делимое: ";
+			cin >> a;
+			cout << "Введите делитель: ";
+			cin >> b;
+			cout << "Ответ: " << Div(a, b) <<endl;
+			goto link;
+		case '%':
+			cout << "Введите число из которого вы будете вычислять проценты: ";
+			cin >> a;
+			cout << "Введите кол-во процентов: ";
+			cin >> b;
+			cout << "Ответ: " << Perc(a, b) << endl;
+			goto link;
+		default:
+			goto link2;
+		}
+	link2:
+		char contprog;
+		cout << "*!: Вы ввели недопустимый символ операции, хотите продолжить работу программы? [Y/N] ";
+		cin >> contprog;
+		switch (contprog)
+		{
+		case 'Y':
+			goto link;
+		case 'N':
+			exit(0);
+		default:
+			goto link2;
+		}
+	}
